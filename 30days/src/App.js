@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Content from './Content';
 import Header from './Header';
+import Clock from './Clock';
 import activities from './Activities'
 
 
@@ -16,6 +17,7 @@ class App extends React.Component {
               <Header title="Knees" />
               <Header title="Toes" />
               <Content activities={activities} />
+              {/*<Clock />*/}
           </div>
       </div>
     ) 
