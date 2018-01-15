@@ -4,7 +4,8 @@ import './App.css';
 import Content from './Content';
 import Header from './Header';
 import Clock from './Clock';
-import activities from './Activities'
+import activities from './Activities';
+import Footer from './Footer';
 
 
 class App extends React.Component {
@@ -17,7 +18,9 @@ class App extends React.Component {
               <Header title="Knees" />
               <Header title="Toes" />
               <Content activities={activities} />
-              {/*<Clock />*/}
+              <Clock />
+              <Footer />
+
           </div>
       </div>
     ) 
