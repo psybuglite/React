@@ -4,5 +4,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render( <App / > , document.querySelector('.demo'));
+ReactDOM.render( < App / > , document.querySelector('.demo'));
 registerServiceWorker();
+
+if (module.hot) {
+    module.hot.accept()
+}
