@@ -9,6 +9,10 @@ class Clock extends React.Component {
         this.state = this.getTime();
     }
 
+    componentDidMount() {
+    this.setTimer();
+  }
+
 
     setTimer() {
         clearTimeout(this.timeout);
@@ -16,11 +20,7 @@ class Clock extends React.Component {
     }
 
     updateClock() {
-        const currentTime = new Date();
-        this.setState({
-                currentTime: currentTime
-            },
-            this.setTimer);
+      this.setState(this.getTime, this.setTimer);
     }
 
     getTime() {
