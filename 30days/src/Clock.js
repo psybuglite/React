@@ -1,50 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
 class Clock extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = this.getTime();
-    }
-
-    componentDidMount() {
-    this.setTimer();
-  }
-
-
-    setTimer() {
-        clearTimeout(this.timeout);
-        this.timeout = setTimeout(this.updateClock.bind(this), 1000);
-    }
-
-    updateClock() {
-      this.setState(this.getTime, this.setTimer);
-    }
-
-    getTime() {
-        const currentTime = new Date();
-        return {
-            hours: currentTime.getHours(),
-            minutes: currentTime.getMinutes(),
-            seconds: currentTime.getSeconds(),
-            ampm: currentTime.getHours() >= 12 ? 'pm' : 'am'
+        constructor(props) {
+            super(props);
+            this.state = this.getTime();
         }
-    }
 
-    componentWillUnmount() {
-        if (this.timeout) {
+        componentDidMount() {
+            this.setTimer();
+        }
+
+
+        setTimer() {
             clearTimeout(this.timeout);
+            this.timeout = setTimeout(this.updateClock.bind(this), 1000);
         }
-    }
 
-    render() {
-        const { hours, minutes, seconds, ampm } = this.state;
+        updateClock() {
+            this.setState(this.getTime, this.setTimer);
+        }
 
-        return ( <div className="clock" > { hours === 0 ? 12 : (hours > 12) ? hours - 12 : hours }: { minutes > 9 ? minutes : `0${minutes}` }: { seconds > 9 ? seconds : `0${seconds}` } { ampm } </div>
-        )
-    }
-}
+        getTime() {
+            const currentTime = new Date();
+            return {
+                hours: currentTime.getHours(),
+                minutes: currentTime.getMinutes(),
+                seconds: currentTime.getSeconds(),
+                ampm: currentTime.getHours() >= 12 ? 'pm' : 'am'
+            }
+        }
 
-export default Clock;
+        componentWillUnmount() {
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+            }
+        }
+
+        render() {
+            const { hours, minutes, seconds, ampm } = this.state;
+
+            return ( <div className = "clock" > { hours === 0 ? 12 : (hours > 12) ? hours - 12 : hours }: { minutes > 9 ? minutes : `0${minutes}` }: { seconds > 9 ? seconds : `0${seconds}` } { ampm } < /div>)
+            }
+        }
+
+        export default Clock;

@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 //import './App.css';
 import Content from './Content';
 import Header from './Header';
-import Clock from './Clock';
 import activities from './Activities';
 import Footer from './Footer';
 
@@ -13,14 +11,9 @@ class App extends React.Component {
     return (
       <div className="notificationsFrame">
           <div className="panel">
-              <Header title="Head" />
-              <Header title="Shoulder" />
-              <Header title="Knees" />
-              <Header title="Toes" />
+              <Header title="Timeline" />
               <Content activities={activities} />
-              <Clock />
               <Footer />
-
           </div>
       </div>
     ) 
